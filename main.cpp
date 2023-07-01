@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "headers/serial_container.hpp"
-#include "headers/list_container.hpp"
-#include "headers/doubly_list_container.hpp"
+#include "serial_container.hpp"
+#include "list_container.hpp"
+#include "doubly_list_container.hpp"
 
 int main()
 {

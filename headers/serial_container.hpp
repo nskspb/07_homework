@@ -101,6 +101,11 @@ public:
         return c_size;
     }
 
+    bool empty()
+    {
+        return (c_size == 0) && (data == nullptr);
+    }
+
     const char *name() const override
     {
         return "serial_container";
