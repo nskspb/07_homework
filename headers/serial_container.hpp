@@ -15,7 +15,7 @@ public:
 
     void clear()
     {
-        ~serial_container();
+        delete[] data;
     }
 
     void swap(const serial_container &first, const serial_container &second)

@@ -62,6 +62,11 @@ public:
         return *this;
     }
 
+    bool empty()
+    {
+        return (c_size == 0) && (head == nullptr);
+    }
+
     void push_back(const T &element) override
     {
         if (head == nullptr)

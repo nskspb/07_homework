@@ -1,4 +1,5 @@
 #include "test_serial.cpp"
+#include "test_list.cpp"
 
 int main(int argc, char **argv)
 {
