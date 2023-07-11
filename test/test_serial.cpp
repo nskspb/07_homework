@@ -48,13 +48,26 @@ TEST(Serial, push_back)
 
 TEST_F(SerialFixture, PushBack)
 {
-    SetUp();
-
     serial.push_back(11);
-
-    std::cout << "size = " << serial.size() << std::endl;
-    std::cout << "size = " << element_count << std::endl;
 
     ASSERT_EQ(serial.size(), element_count + 1);
     ASSERT_FALSE(serial.empty());
+}
+
+TEST_F(SerialFixture, Erase)
+{
+    ASSERT_EQ(serial[5], 5);
+
+    serial.erase(5);
+
+    ASSERT_NE(serial[5], 5);
+}
+
+TEST_F(SerialFixture, PopBack)
+{
+    ASSERT_EQ(serial[element_count - 1], 9);
+
+    serial.erase(serial.size());
+
+    ASSERT_NE(serial[element_count - 1], 5);
 }
