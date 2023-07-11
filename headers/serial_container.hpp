@@ -13,6 +13,11 @@ public:
         delete[] data;
     }
 
+    void clear()
+    {
+        ~serial_container();
+    }
+
     void swap(const serial_container &first, const serial_container &second)
     {
         std::swap(first.c_size, second.c_size);
