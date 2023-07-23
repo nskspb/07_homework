@@ -45,5 +45,18 @@ int main()
 
         delete container[i];
     }
+
+    serial_container<size_t> content;
+    for (size_t i = 0; i < 10; ++i)
+        content.push_back(i);
+
+    content.show();
+    std::cout << "***" << content.size() << std::endl;
+    for (int i = 0; i < content.size(); ++i)
+    {
+        content.erase(0);
+    }
+    content.show();
+    std::cout << "***" << content.size();
     return 0;
 }

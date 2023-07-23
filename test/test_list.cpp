@@ -35,6 +35,12 @@ struct ListFixture : public testing::Test
     }
 };
 
+TEST_F(ListFixture, Container_Initialization)
+{
+    serial_container<size_t> cont;
+    ASSERT_EQ(cont.size(), 0);
+}
+
 TEST_F(ListFixture, PushBack)
 {
     list.push_back(15);
