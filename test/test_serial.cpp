@@ -124,3 +124,18 @@ TEST_F(SerialFixture, CopyContainers)
     ASSERT_EQ(vect1.size(), vect2.size());
     ASSERT_FALSE(vect1.empty());
 }
+
+TEST_F(SerialFixture, MoveContainers)
+{
+    serial_container<size_t> vect1 = std::move(serial);
+    vect1.show();
+    /*serial_container<size_t> vect2;
+    vect2 = serial;
+
+    for (int i = 0; i < element_count; ++i)
+    {
+        ASSERT_EQ(vect1[i], vect2[i]);
+    }
+
+    ASSERT_EQ(vect1.size(), vect2.size());*/
+}
