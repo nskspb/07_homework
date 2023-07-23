@@ -129,13 +129,20 @@ TEST_F(SerialFixture, MoveContainers)
 {
     serial_container<size_t> vect1 = std::move(serial);
     vect1.show();
-    /*serial_container<size_t> vect2;
-    vect2 = serial;
+    serial.show();
+
+    serial_container<size_t> vect2;
+    vect2 = vect1;
+
+    serial_container<size_t> vect3;
+    vect3 = std::move(vect2);
 
     for (int i = 0; i < element_count; ++i)
     {
-        ASSERT_EQ(vect1[i], vect2[i]);
+        ASSERT_EQ(vect3[i], vect1[i]);
     }
 
-    ASSERT_EQ(vect1.size(), vect2.size());*/
+    ASSERT_EQ(vect3.size(), vect1.size());
+    ASSERT_FALSE(vect3.empty());
+    ASSERT_TRUE(serial.empty());
 }
