@@ -109,3 +109,18 @@ TEST_F(SerialFixture, ContainerSize)
 
     ASSERT_EQ(serial.size(), count);
 }
+
+TEST_F(SerialFixture, CopyContainers)
+{
+    serial_container<size_t> vect1 = serial;
+    serial_container<size_t> vect2;
+    vect2 = serial;
+
+    for (int i = 0; i < element_count; ++i)
+    {
+        ASSERT_EQ(vect1[i], vect2[i]);
+    }
+
+    ASSERT_EQ(vect1.size(), vect2.size());
+    ASSERT_FALSE(vect1.empty());
+}
