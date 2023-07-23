@@ -46,6 +46,12 @@ TEST(Serial, push_back)
     ASSERT_FALSE(serial.empty());
 }
 
+TEST_F(SerialFixture, Container_Initialization)
+{
+    serial_container<size_t> vect;
+    ASSERT_EQ(vect.size(), 0);
+}
+
 TEST_F(SerialFixture, PushBack)
 {
     serial.push_back(11);

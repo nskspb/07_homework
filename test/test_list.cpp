@@ -53,7 +53,6 @@ TEST_F(ListFixture, Clear)
 TEST_F(ListFixture, PushFront)
 {
     list.push_front(25);
-    list.show();
     ASSERT_EQ(list.size(), element_count + 1);
     ASSERT_EQ(list[0], 25);
     ASSERT_EQ(list[element_count], 9);
