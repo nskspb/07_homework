@@ -10,12 +10,12 @@ struct ListFixture : public testing::Test
 
     static void SetUpTestSuite()
     {
-        std::cout << "SetUpTestSuite" << std ::endl;
+        std::cout << "SetUpTestSuite List" << std ::endl;
     }
 
     static void TearDownTestSuite()
     {
-        std::cout << "TearDownTestSuite" << std::endl;
+        std::cout << "TearDownTestSuite List" << std::endl;
     }
 
     void SetUp() override
@@ -38,7 +38,7 @@ struct ListFixture : public testing::Test
 TEST_F(ListFixture, Container_Initialization)
 {
     serial_container<size_t> cont;
-    ASSERT_EQ(cont.size(), 0);
+    ASSERT_TRUE(cont.empty());
 }
 
 TEST_F(ListFixture, PushBack)

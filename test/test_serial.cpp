@@ -10,12 +10,12 @@ struct SerialFixture : public testing::Test
 
     static void SetUpTestSuite()
     {
-        std::cout << "SetUpTestSuite" << std::endl;
+        std::cout << "SetUpTestSuite Serial" << std::endl;
     }
 
     static void TearDownTestSuite()
     {
-        std::cout << "TearDownTestSuite" << std::endl;
+        std::cout << "TearDownTestSuite Serial" << std::endl;
     }
 
     void SetUp() override
@@ -36,7 +36,7 @@ struct SerialFixture : public testing::Test
 TEST_F(SerialFixture, Container_Initialization)
 {
     serial_container<size_t> vect;
-    ASSERT_FALSE(serial.empty());
+    ASSERT_TRUE(vect.empty());
 }
 
 TEST_F(SerialFixture, PushBack)
