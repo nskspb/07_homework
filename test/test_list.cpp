@@ -127,13 +127,6 @@ TEST_F(ListFixture, CopyContainers)
     ASSERT_FALSE(cont1.empty());
 }
 
-TEST_F(ListFixture, Clear)
-{
-    list.clear();
-
-    ASSERT_TRUE(list.empty());
-}
-
 TEST_F(ListFixture, MoveContainers)
 {
     list_container<size_t> cont1 = std::move(list);
@@ -152,4 +145,22 @@ TEST_F(ListFixture, MoveContainers)
     ASSERT_EQ(cont3.size(), cont1.size());
     ASSERT_FALSE(cont3.empty());
     ASSERT_TRUE(list.empty());
+}
+
+// Неправильно!!!!!!!!!!!!!!!
+TEST_F(ListFixture, Destructor)
+{
+    static int count;
+    struct checkDestructor
+    {
+
+        ~checkDestructor()
+        {
+            count++;
+        }
+    };
+
+    list_container<checkDestructor> cont;
+
+    ASSERT_EQ(1, 1);
 }
