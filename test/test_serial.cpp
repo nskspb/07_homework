@@ -125,6 +125,18 @@ TEST_F(SerialFixture, CopyContainers)
     ASSERT_FALSE(vect1.empty());
 }
 
+TEST_F(SerialFixture, DeleteContainer)
+{
+    for (int i = 0; i < serial.size(); ++i)
+    {
+    }
+}
+
+TEST_F(SerialFixture, Destructor)
+{
+    ASSERT_EQ(1, 1);
+}
+
 TEST_F(SerialFixture, MoveContainers)
 {
     serial_container<size_t> vect1 = std::move(serial);
