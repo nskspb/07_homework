@@ -105,9 +105,51 @@ TEST_F(ListFixture, Get_element)
     }
 }
 
+TEST_F(ListFixture, ContainerSize)
+{
+    int count = 10;
+
+    ASSERT_EQ(list.size(), count);
+}
+
+TEST_F(ListFixture, CopyContainers)
+{
+    list_container<size_t> cont1 = list;
+    list_container<size_t> cont2;
+    cont2 = list;
+
+    for (int i = 0; i < element_count; ++i)
+    {
+        ASSERT_EQ(cont1[i], cont2[i]);
+    }
+
+    ASSERT_EQ(cont1.size(), cont2.size());
+    ASSERT_FALSE(cont1.empty());
+}
+
 TEST_F(ListFixture, Clear)
 {
     list.clear();
 
+    ASSERT_TRUE(list.empty());
+}
+
+TEST_F(ListFixture, MoveContainers)
+{
+    list_container<size_t> cont1 = std::move(list);
+
+    list_container<size_t> cont2;
+    cont2 = cont1;
+
+    list_container<size_t> cont3;
+    cont3 = std::move(cont2);
+
+    for (int i = 0; i < element_count; ++i)
+    {
+        ASSERT_EQ(cont3[i], cont1[i]);
+    }
+
+    ASSERT_EQ(cont3.size(), cont1.size());
+    ASSERT_FALSE(cont3.empty());
     ASSERT_TRUE(list.empty());
 }
