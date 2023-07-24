@@ -37,7 +37,7 @@ struct ListFixture : public testing::Test
 
 TEST_F(ListFixture, Container_Initialization)
 {
-    serial_container<size_t> cont;
+    list_container<size_t> cont;
     ASSERT_TRUE(cont.empty());
 }
 
@@ -64,6 +64,26 @@ TEST_F(ListFixture, InsertMiddle)
 
     ASSERT_EQ(list.size(), element_count + 1);
     ASSERT_EQ(list[list.size() / 2], 33);
+}
+
+TEST_F(ListFixture, PopBack)
+{
+    ASSERT_EQ(list[list.size() - 1], 9);
+
+    list.erase(list.size() - 1);
+
+    ASSERT_NE(list[list.size() - 1], 9);
+    ASSERT_EQ(list.size(), element_count - 1);
+}
+
+TEST_F(ListFixture, PopFront)
+{
+    ASSERT_EQ(list[0], 0);
+
+    list.pop_front();
+
+    ASSERT_NE(list[0], 0);
+    ASSERT_EQ(list.size(), element_count - 1);
 }
 
 TEST_F(ListFixture, Clear)
