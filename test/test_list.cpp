@@ -46,14 +46,8 @@ TEST_F(ListFixture, PushBack)
     list.push_back(15);
 
     ASSERT_EQ(list.size(), element_count + 1);
+    ASSERT_EQ(list[element_count], 15);
     ASSERT_FALSE(list.empty());
-}
-
-TEST_F(ListFixture, Clear)
-{
-    list.clear();
-
-    ASSERT_TRUE(list.empty());
 }
 
 TEST_F(ListFixture, PushFront)
@@ -62,4 +56,19 @@ TEST_F(ListFixture, PushFront)
     ASSERT_EQ(list.size(), element_count + 1);
     ASSERT_EQ(list[0], 25);
     ASSERT_EQ(list[element_count], 9);
+}
+
+TEST_F(ListFixture, InsertMiddle)
+{
+    list.insert(list.size() / 2, 33);
+
+    ASSERT_EQ(list.size(), element_count + 1);
+    ASSERT_EQ(list[list.size() / 2], 33);
+}
+
+TEST_F(ListFixture, Clear)
+{
+    list.clear();
+
+    ASSERT_TRUE(list.empty());
 }
