@@ -86,6 +86,25 @@ TEST_F(ListFixture, PopFront)
     ASSERT_EQ(list.size(), element_count - 1);
 }
 
+TEST_F(ListFixture, EraseMiddle)
+{
+    int middle = list.size() / 2;
+    ASSERT_EQ(list[middle], 5);
+
+    list.erase(middle);
+
+    ASSERT_NE(list[middle], 5);
+    ASSERT_EQ(list.size(), element_count - 1);
+}
+
+TEST_F(ListFixture, Get_element)
+{
+    for (int i = 0; i < list.size(); ++i)
+    {
+        ASSERT_TRUE(list[i] == i);
+    }
+}
+
 TEST_F(ListFixture, Clear)
 {
     list.clear();
