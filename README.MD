@@ -2,8 +2,8 @@ Otus_cpp_basic_homework_07
 
 Unit-тестирование контейнеров
 
-Для запуска используется vcpkg:
-
-cmake . -B build -DCMAKE_TOOLCHAIN_FILE=/home/ubunter/vcpkg/scripts/buildsystems/vcpkg.cmake
+Выполнено основное задание и дополнительные задания 1, 3
+ 
+Для сборки используется vcpkg:
 
 cmake . -B build -DCMAKE_TOOLCHAIN_FILE=.../.../vcpkg/scripts/buildsystems/vcpkg.cmake
