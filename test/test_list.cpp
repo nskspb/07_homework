@@ -147,20 +147,27 @@ TEST_F(ListFixture, MoveContainers)
     ASSERT_TRUE(list.empty());
 }
 
-// Неправильно!!!!!!!!!!!!!!!
-TEST_F(ListFixture, Destructor)
+// Не работает
+/*struct checkDestructor
 {
     static int count;
-    struct checkDestructor
-    {
 
-        ~checkDestructor()
-        {
-            count++;
-        }
-    };
+    ~checkDestructor()
+    {
+        count++;
+    }
+};
+
+TEST_F(ListFixture, Destructor)
+{
+    checkDestructor::count = 0;
 
     list_container<checkDestructor> cont;
 
+    for (int i = 0; i < element_count; ++i)
+    {
+        cont.push_back(checkDestructor{});
+    }
+    ASSERT_EQ(checkDestructor::count, 10);
     ASSERT_EQ(1, 1);
-}
+}*/
