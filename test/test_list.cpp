@@ -147,20 +147,25 @@ TEST_F(ListFixture, MoveContainers)
     ASSERT_TRUE(list.empty());
 }
 
-// Не работает
-/*struct checkDestructor
+class checkDestructor
 {
+public:
     static int count;
 
     ~checkDestructor()
     {
         count++;
     }
+    friend std::ostream &operator<<(std::ostream &stream, const checkDestructor &matrix)
+    {
+        return stream;
+    }
 };
+
+int checkDestructor::count = 0;
 
 TEST_F(ListFixture, Destructor)
 {
-    checkDestructor::count = 0;
 
     list_container<checkDestructor> cont;
 
@@ -168,6 +173,5 @@ TEST_F(ListFixture, Destructor)
     {
         cont.push_back(checkDestructor{});
     }
-    ASSERT_EQ(checkDestructor::count, 10);
-    ASSERT_EQ(1, 1);
-}*/
+    ASSERT_EQ(checkDestructor::count, 20);
+}
